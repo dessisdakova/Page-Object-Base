@@ -12,9 +12,9 @@ options.add_argument("--headless")
 options.add_argument("--disable-logging")
 options.add_argument("--disable-notifications")
 
-# Not sure if I should use webdriver_manager library or should just initialize the webdriver
-# driver = webdriver.Chrome(options=options)
-driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+
+driver = webdriver.Chrome(options=options,
+                          service=Service(ChromeDriverManager().install()))
 
 page = SearchPage(driver)
 page.open()

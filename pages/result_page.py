@@ -21,10 +21,10 @@ class ResultPage(BasePage):
         super().__init__(driver)
         self._results = self.find_search_results()
 
-
     def find_search_results(self):
         """Find all elements with the provided locator."""
-        return WebDriverWait(self._driver, 10).until(ec.presence_of_all_elements_located(ResultPage.SEARCH_RESULTS))
+        return (WebDriverWait(self._driver, 10)
+                .until(ec.presence_of_all_elements_located(ResultPage.SEARCH_RESULTS)))
 
     def get_top_three_results(self):
         """Get a list of strings with top three site results."""

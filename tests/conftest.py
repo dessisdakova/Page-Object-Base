@@ -11,6 +11,7 @@ def browser():
     options.add_argument("--headless")
     options.add_argument("--disable-logging")
     options.add_argument("--disable-notifications")
-    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(options=options,
+                              service=Service(ChromeDriverManager().install()))
     yield driver
     driver.quit()

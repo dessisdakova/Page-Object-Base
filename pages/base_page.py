@@ -22,7 +22,8 @@ class BasePage:
         """Open the page."""
         self._driver.get(self._url)
         # Wait for the entire page to load.
-        WebDriverWait(self._driver, 10).until(ec.presence_of_element_located((By.ID, "bnp_container")))
+        (WebDriverWait(self._driver, 10)
+         .until(ec.presence_of_element_located((By.ID, "bnp_container"))))
 
     def get_title(self) -> str:
         """Retrieve the page's title as string."""
