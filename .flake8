@@ -1,11 +1,4 @@
 [flake8]
-exclude =
-    .git/*,
-    __pycache__/*,
-    .idea/*,
-    .venv/*,
-    __init__.py,
-    .gitignore,
-    pytest.ini
+exclude =.git,__pycache__,.idea,.venv
 count = True
 max-line-length = 90
