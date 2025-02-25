@@ -1,3 +1,5 @@
+from sys import executable
+
 from pytest import fixture
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOp
@@ -14,9 +16,8 @@ def browser():
     # driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
     # driver = webdriver.Chrome(options=options)
 
-    # Specify the path to the Chrome binary
-    options.binary_location = "/opt/google/chrome/chrome"
-    # Point to chromedriver in /usr/local/bin/
-    driver = webdriver.Chrome(service=Service("/usr/local/bin/chromedriver-linux64"), options=options)
+    chrome_binary_path = "/opt/google/chrome/chrome"
+    options.binary_location = chrome_binary_path
+    driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
