@@ -11,7 +11,12 @@ def browser():
     options.add_argument("--headless")
     options.add_argument("--disable-logging")
     options.add_argument("--disable-notifications")
-    driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+    # driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
     # driver = webdriver.Chrome(options=options)
+
+    # Specify the path to the Chrome binary
+    options.binary_location = "/opt/google/chrome/chrome"
+    # Point to chromedriver in /usr/local/bin/
+    driver = webdriver.Chrome(service=Service("/usr/local/bin/chromedriver-linux64"), options=options)
     yield driver
     driver.quit()
