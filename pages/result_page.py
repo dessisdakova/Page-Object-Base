@@ -22,7 +22,7 @@ class ResultPage(BasePage):
         self._results = self.find_search_results()
 
     def find_search_results(self):
-        """Find all elements with the provided locator."""
+        """Find all element with the provided locator."""
         return (WebDriverWait(self._driver, 10)
                 .until(ec.presence_of_all_elements_located(ResultPage.SEARCH_RESULTS)))
 
